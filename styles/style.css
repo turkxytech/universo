@@ -1,0 +1,503 @@
+/* 
+! Variables
+*/
+
+:root {
+  --bg-color: #1d1d1d;
+  --main-color: #14dd14;
+  --section-bg: #1a1a1a;
+  --box-bg: #0f1a0e;
+  --DEFAULT-PADDING: 10px 20px;
+}
+
+/* 
+! Global Rules
+*/
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: white;
+  font-family: "IBM Plex Sans Arabic", system-ui;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  padding: var(--DEFAULT-PADDING);
+}
+
+.c{
+  color: var(--main-color);
+}
+
+.main_header {
+  padding: var(--DEFAULT-PADDING);
+  border: 1px solid white;
+  max-width: fit-content;
+  transition: .5s;
+}
+
+.main_header:hover {
+  box-shadow: 0 0 50px #14dd14, 0 0 50px #0c4d0c inset;
+  text-shadow: 0 0 10px white;
+}
+
+/* 
+! Scrollbar styling for MS
+*/
+
+/* Targeting the scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Targeting the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color)
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #085a08;
+}
+
+/* 
+! Page Styling
+*/
+/* ` HEADER */
+header.mheader {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 5px;
+  display: flex;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(27, 27, 29, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  z-index: 1024;
+  padding: 10px 20px;
+}
+
+.mheader .img img {
+  width: 125px;
+}
+
+.mheader ul {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.mheader ul li {
+  transition: 0.5s;
+}
+
+.mheader ul li:hover {
+  color: var(--main-color);
+  font-size: large;
+}
+
+/* ` LANDING */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content .text {
+  text-align: center;
+}
+
+.content .text h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.content .text p {
+  color: #888;
+  margin: 0;
+  padding: 0;
+  animation: opacity 1s ease-in-out;
+}
+
+.content .text h1::first-letter {
+  color: #14dd14;
+}
+
+/* Positioning the down arrow properly */
+a.down {
+  position: absolute;
+  bottom: 50px; /* Ensure it's 50px from the bottom of the viewport */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* ` ABOUT */
+
+/* Add spacing below the down arrow */
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 1250px;
+  text-align: center;
+  background-color: var(--section-bg);
+}
+
+.about .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--DEFAULT-PADDING);
+}
+
+/* ` PROJECTS */
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 1500px;
+  text-align: center;
+  background-color: var(--section-bg);
+  padding: 50px;
+}
+
+.projects .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Ensure boxes wrap on smaller screens */
+  justify-content: center;
+  align-items: center;
+  padding: var(--DEFAULT-PADDING);
+  gap: 20px; /* Adjust gap for better spacing on smaller screens */
+}
+
+.projects .container .box {
+  flex: 1;
+  max-width: 300px; /* Adjust max width for responsiveness */
+  background-color: var(--box-bg);
+  padding: 50px 20px 20px 20px;
+  transition: 0.5s cubic-bezier(.2,-0.01,0,.97);
+  font-size: larger;
+}
+
+.hovered{
+  scale: 1.;
+  transition: 0.5s;
+}
+
+.not-hovered{
+  scale: 0.9;
+}
+
+.projects .container .box img {
+  max-width: 100%;
+  padding: var(--DEFAULT-PADDING);
+}
+
+.projects .container .box .text {
+  text-align: center;
+}
+
+.projects .container .box p {
+  color: #777;
+}
+
+.projects .container .box.hovered {
+  transform: scale(1.1);
+}
+
+.projects .container .box:not(.hovered) {
+  transform: scale(0.9);
+}
+
+/* ` REVIEWS */
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--section-bg);
+  padding: 2rem 1rem; /* Added padding for responsiveness */
+  position: relative;
+  top: 1750px;
+}
+
+.reviews .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviews .container .content-re {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Added responsive gap */
+  justify-content: center;
+}
+
+.reviews .container .box {
+  background-color: var(--box-bg);
+  width: 100%;
+  max-width: 350px; /* Restrict max width for responsiveness */
+  margin: 1.5rem 0;
+  padding: 1.5rem; /* Added padding */
+  flex: 1;
+  text-align: center;
+  border-radius: 10px; /* Optional: Rounded corners for a modern look */
+}
+
+.reviews .container .box .img img {
+  max-width: 100%; /* Ensure image is responsive */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.reviews .container .box .text {
+  position: relative;
+}
+
+.reviews .container .box .text p {
+  color: #777;
+}
+
+/* ` Contact Section */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--section-bg);
+  padding: 3rem 1rem;
+  position: relative;
+  top: 2000px;
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact .container .text {
+  font-size: 50px;
+  margin-bottom: 2rem; /* Added margin for spacing */
+}
+
+.contact .container .text i{
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.contact .container .text i:hover{
+  text-shadow: 0 0 50px var(--main-color);
+}
+
+.contact .container .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px; /* Limit max-width for better responsiveness */
+}
+
+.contact .container input,
+.contact .container textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--box-bg);
+  border: 1px solid #444;
+  color: white;
+  border-radius: 5px;
+}
+
+.contact .container button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--main-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.contact .container button:hover {
+  background-color: #0f8f0f;
+}
+
+/* 
+! Media Queries
+*/
+
+@media screen and (max-width: 768px) {
+  
+  .projects .container {
+    gap: 15px;
+  }
+
+  .projects .container .box {
+    max-width: 250px; /* Adjust for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects{
+    position: relative;
+        TOP: 1500px;
+        background-color: var(--section-bg);
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  }
+
+  .projects .container {
+    gap: 10px;
+  }
+
+  .projects .container .box {
+    max-width: 200px; /* Further adjust for very small screens */
+  }
+}
+
+/* 
+! Animation
+*/
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.opacity {
+  animation: opacity 1s ease-in-out;
+}
+
+/* 
+! Media Queries for Responsive Design
+*/
+
+@media screen and (max-width: 768px) {
+  .mheader ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  .mheader .img img {
+    width: 100px;
+  }
+
+  .content .text h1 {
+    font-size: 35px;
+  }
+
+  a.down {
+    bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mheader ul {
+    gap: 5px;
+  }
+
+  .content .text h1 {
+    font-size: 25px;
+  }
+
+  .content .text p {
+    font-size: 14px;
+  }
+}
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 768px) {
+  
+  .reviews .container .content-re {
+    flex-direction: column; /* Stack the review boxes vertically */
+  }
+
+  .reviews .container .box {
+    max-width: 100%;
+    width: 100%; /* Make review boxes full width */
+  }
+
+  .contact .container .text {
+    font-size: var(--font-medium); /* Smaller font size on medium screens */
+  }
+
+  .contact .container .input-group {
+    max-width: 100%; /* Make contact form full width */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  
+  .reviews .container .box {
+    max-width: 100%; /* Full width on small screens */
+    padding: 1rem; /* Reduced padding */
+  }
+
+  .contact .container .text {
+    font-size: var(--font-small); /* Smaller font for mobile */
+  }
+
+  .contact .container .input-group {
+    max-width: 100%; /* Full width on small screens */
+    gap: 0.5rem; /* Reduced gap between form elements */
+  }
+
+  .contact .container button {
+    padding: 0.5rem 1rem; /* Smaller button on mobile */
+  }
+}
